@@ -49,10 +49,11 @@ python_files = [
 testpaths = ["packages", "plugins", "samples"]
 
 [tool.pytest.ini_options]
-addopts = "--cov"
+addopts                            = "--cov"
+asyncio_default_fixture_loop_scope = "session"
 
 [tool.coverage.report]
-fail_under = 83
+fail_under = 85
 
 # uv based package management.
 [tool.uv]
@@ -76,10 +77,10 @@ hello                      = { workspace = true }
 menu                       = { workspace = true }
 prompt-file                = { workspace = true }
 rag                        = { workspace = true }
+vertex-ai-imagen           = { workspace = true }
 vertex-ai-model-garden     = { workspace = true }
 vertex-ai-reranker         = { workspace = true }
 vertex-ai-vector-search    = { workspace = true }
-
 
 [tool.uv.workspace]
 members = ["packages/*", "plugins/*", "samples/*"]
@@ -125,14 +126,15 @@ unsafe-fixes = true
 [tool.ruff.lint]
 fixable = ["ALL"]
 select = [
-  "E",  # pycodestyle (errors)
-  "W",  # pycodestyle (warnings)
-  "F",  # pyflakes
-  "I",  # isort (import sorting)
-  "UP", # pyupgrade (Python version upgrades)
-  "B",  # flake8-bugbear (common bugs)
-  "N",  # pep8-naming (naming conventions)
-  "D",  # pydocstyle
+  "E",    # pycodestyle (errors)
+  "W",    # pycodestyle (warnings)
+  "F",    # pyflakes
+  "I",    # isort (import sorting)
+  "UP",   # pyupgrade (Python version upgrades)
+  "B",    # flake8-bugbear (common bugs)
+  "N",    # pep8-naming (naming conventions)
+  "D",    # pydocstyle
+  "F401", # unused imports
 ]
 
 [tool.ruff.lint.pydocstyle]
