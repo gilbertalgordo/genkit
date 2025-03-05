@@ -23,6 +23,6 @@
   "devDependencies": {
     "genkit-cli": "^1.0.4",
     "typescript": "^5.4.5",
-    "tsx": "^4.19.2"
+    "tsx": "^4.19.3"
   }
 }
